@@ -14,7 +14,7 @@ YoutubeAPIを用いてPython言語の学習
 * requests 2.22.0
 * mysql-connector-python-rf
  
-# Installation
+# 各種インストール
  
 "docker-compose up -d --build"コマンドにて上記記載のライブラリがappコンテナにインストールされる。
 
@@ -40,7 +40,7 @@ https://qiita.com/iroiro_bot/items/1016a6a439dfb8d21eca
 
 2-2. 取得したAPIKeyを"app/util/youtube_util.py"内の変数「DEVELOPER_KEY」へ記載する。
 
-# Usage
+# 使い方
  
 ①docker-compose up -d --build コマンドにてdockerを起動する。
 
