@@ -1,0 +1,59 @@
+version: '3'
+services:
+  # nginx:
+  #  build:
+  #      context: .
+  #      dockerfile: ./nginx/Dockerfile
+  #  volumes:
+      # マウントするディレクトリ
+  #    - ./nginx:/dk_tensor_fw/nginx
+  #  ports:
+  #    - 443:443
+    # depends_on:
+      # 依存関係を指定。web-serverの起動より前にapp-serverを起動するようになる
+      # - app_tensor
+  #  networks:
+  #    - nginx_network
+
+  app:
+    container_name: app
+    depends_on:
+      - db
+    # サービス再起動ポリシー
+    # restart: always
+    # ビルドするdockerファイルが格納されたディレクトリ
+    build: ./app
+    volumes:
+      # マウントするディレクトリ
+      - ./app:/var/www/app
+    ports:
+      # ホスト側のポート：コンテナ側のポート
+      - 7010:7010
+    tty: true
+    networks:
+      - nginx_network
+
+  db:
+   #build: ./mysql
+   #動作しない場合バージョンを以下へ変更してください。
+   #image: mysql:5.7
+   image: mysql:8.0.23
+   image: mysql@sha256:43bf7db32d11e75d8463a8bc077f09af5fb5b84b182b1d74124ddca633093bfa
+   ports:
+     - 13306:3306
+   volumes:
+     - ./mysql/init.d:/docker-entrypoint-initdb.d
+     - ./mysql/conf.d:/etc/mysql/conf.d
+     - ./log/mysql:/var/log/mysql
+   environment:
+     MYSQL_ROOT_PASSWORD: secret
+     MYSQL_DATABASE: sample_db
+     MYSQL_ROOT_HOST: 0.0.0.0
+     MYSQL_USER: test_user
+     MYSQL_PASSWORD: 1q2w3e4r5t
+   networks:
+     - nginx_network
+
+networks:
+  nginx_network:
+    driver: bridge
