@@ -107,6 +107,10 @@ https://qiita.com/iroiro_bot/items/1016a6a439dfb8d21eca
 
 例）
 
-チャンネルの場合、「https://www.youtube.com/channel/"上記channelId"」で該当チャンネルを表示
+・チャンネルの場合
 
-動画の場合、「https://www.youtube.com/watch?v="上記のvideoId"」で該当動画を表示
+「https://www.youtube.com/channel/"上記channelId"」で該当チャンネルを表示
+
+・動画の場合
+
+「https://www.youtube.com/watch?v="上記のvideoId"」で該当動画を表示
