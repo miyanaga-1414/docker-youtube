@@ -16,7 +16,9 @@ YoutubeAPIを用いてPython言語の学習
  
 # 各種インストール
  
-"docker-compose up -d --build"コマンドにて上記記載のライブラリがappコンテナにインストールされる。
+「docker-compose up -d --build」
+
+コマンドにて上記記載のライブラリがappコンテナにインストールされる。
 
 # 準備
 
@@ -24,11 +26,11 @@ YoutubeAPIを用いてPython言語の学習
 
 1.DBコンテナのIPを取得し、実装へ記載する。（DBの疎通を行う場合）
 
-1-1. "docker-compose exec db bash"を実行し、DBコンテナへアクセスする。
+1-1. 「docker-compose exec db bash」　を実行し、DBコンテナへアクセスする。
 
-1-2. DBコンテナ内で"hostname -i"を実行しIPを取得する。
+1-2. DBコンテナ内で　「hostname -i」　を実行しIPを取得する。
 
-1-3. "app/util/db_util.py"内の変数「host」へ記載する。
+1-3. 「app/util/db_util.py」内の変数「host」へ記載する。
 
 
 
@@ -38,15 +40,15 @@ YoutubeAPIを用いてPython言語の学習
 
 https://qiita.com/iroiro_bot/items/1016a6a439dfb8d21eca
 
-2-2. 取得したAPIKeyを"app/util/youtube_util.py"内の変数「DEVELOPER_KEY」へ記載する。
+2-2. 取得したAPIKeyを「app/util/youtube_util.py」内の変数「DEVELOPER_KEY」へ記載する。
 
 # 使い方
  
-①docker-compose up -d --build コマンドにてdockerを起動する。
+①「docker-compose up -d --build」 コマンドにてdockerを起動する。
 
 ②cURLを使用し以下リクエストでDBとの疎通が行えているか確認する。
 
-"curl http://localhost:7010/api/status/任意の文字列"
+「curl http://localhost:7010/api/status/任意の文字列」
 
 ```
 {
@@ -60,7 +62,7 @@ https://qiita.com/iroiro_bot/items/1016a6a439dfb8d21eca
 
 ③YoutubeAPI、動画の検索にて任意の文字列で検索を実施する。
 
-"curl http://localhost:7010/api/youtube/任意の文字列"
+「curl http://localhost:7010/api/youtube/任意の文字列」
 
 以下レスポンスの例
 
