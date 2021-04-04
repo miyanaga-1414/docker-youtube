@@ -101,6 +101,8 @@ https://qiita.com/iroiro_bot/items/1016a6a439dfb8d21eca
 
 ```
  
+ # 補足
+ 
 上記レスポンス内の「channelId」、「videoId」で動画、チャンネルを参照可能
 
 例）
