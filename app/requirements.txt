@@ -20,3 +20,6 @@ google-api-python-client
 #tensorboard>=1.14.0
 # tensorflow>=1.14.0
 #mecab-python3==0.996.2
+pyopenssl
+signxml
+lxml

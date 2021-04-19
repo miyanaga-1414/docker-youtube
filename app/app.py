@@ -3,6 +3,7 @@ from flask import jsonify
 import mysql.connector
 from util import db_util
 from util import youtube_util
+from util import ssl_util
 
 app = Flask(__name__)
 
@@ -56,6 +57,29 @@ def api_get_db_status(key):
 def search_youtube(query):
     return youtube_util.search_video(query)
 
+@app.route("/api/openssl", methods=["GET"])
+def getDegitalCertificate():
+    data = ssl_util.getPublicKey()
+
+    json = {"key": data}
+
+    return jsonify(json)
+
+@app.route("/api/privatekey", methods=["GET"])
+def getPrivateKey():
+    key = ssl_util.getPrivateKey()
+
+    return jsonify(
+        {
+            "key": key
+        }
+    )
+
+@app.route("/api/signature", methods=["GET"])
+def signature():
+    result = ssl_util.signature()
+
+    return jsonify({"result":result})
 
 
 app.run(host='0.0.0.0',port=7010,debug=True)
